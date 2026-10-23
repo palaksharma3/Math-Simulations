@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathScribble — Type Anything, Watch Math Dance</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">✨ MathScribble</div>
+    <p class="tagline">Math is boring… so just <b>type something</b> and let the animation happen.</p>
+  </header>
+
+  <main class="layout">
+
+    <canvas id="canvas"></canvas>
+
+    <aside class="panel">
+
+      <label class="field-label" for="mathInput">Type a formula (x, y, t) — or literally anything</label>
+      <textarea id="mathInput" rows="3" spellcheck="false">sin(x*3 + t) - cos(y*2 - t)</textarea>
+
+      <div class="chips" id="chips">
+        <button class="chip" data-v="sin(x*3+t)-cos(y*2-t)">waves</button>
+        <button class="chip" data-v="tan(x+y+t)*0.5">tangled</button>
+        <button class="chip" data-v="x*x-y*y+sin(t)">saddle</button>
+        <button class="chip" data-v="galaxy brain">galaxy brain</button>
+        <button class="chip" data-v="i hate calculus">i hate calculus</button>
+        <button class="chip" data-v="purple butterflies">butterflies</button>
+      </div>
+
+      <button id="generateBtn" class="btn primary">Generate Animation ✨</button>
+      <p id="status" class="status">Mode: —</p>
+
+      <div class="controls">
+        <div class="ctrl">
+          <label>Speed <span id="speedVal"></span></label>
+          <input type="range" id="speed" min="0.1" max="3" step="0.1" value="1">
+        </div>
+        <div class="ctrl">
+          <label>Particles <span id="countVal"></span></label>
+          <input type="range" id="count" min="300" max="6000" step="100" value="1800">
+        </div>
+        <div class="ctrl">
+          <label>Trail length <span id="trailVal"></span></label>
+          <input type="range" id="trail" min="2" max="30" step="1" value="10">
+        </div>
+        <div class="ctrl">
+          <label>Zoom <span id="zoomVal"></span></label>
+          <input type="range" id="zoom" min="1" max="8" step="0.5" value="3">
+        </div>
+        <div class="ctrl checkbox-row">
+          <label><input type="checkbox" id="showCurve" checked> Show signature curve</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="pauseBtn" class="btn">Pause</button>
+        <button id="colorBtn" class="btn">Randomize Colors</button>
+        <button id="saveBtn" class="btn">Save Snapshot</button>
+      </div>
+
+      <p class="hint">Tip: valid math (sin, cos, tan, sqrt, pow, abs, exp, log, pi, e, x, y, t) drives the animation directly. Anything else (words, sentences, feelings) is turned into a unique generative pattern — every phrase looks different.</p>
+
+    </aside>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
